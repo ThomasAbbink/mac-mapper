@@ -1,0 +1,11 @@
+.mac-mapper-address {
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
+  font-style: italic;
+  background-color: lightgrey;
+  border-radius: 4px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-decoration: underline;
+}
