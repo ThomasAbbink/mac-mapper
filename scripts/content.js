@@ -23121,15 +23121,30 @@ const loopThrough = (item) => {
     }
   }
 };
+// Options for the observer (which mutations to observe)
+const config = { childList: true };
 
-const onClick = (vendor) => {};
+// Callback function to execute when mutations are observed
+const callback = (mutationList, observer) => {
+  for (const mutation of mutationList) {
+    if (mutation.type === "childList") {
+      for (const node of mutation.addedNodes) {
+        loopThrough(node);
+      }
+    }
+  }
+};
+
+const observer = new MutationObserver(callback);
 
 const main = async () => {
   const { isEnabled } = await chrome.storage.local.get(["isEnabled"]);
   if (!isEnabled) {
+    observer.disconnect();
     return;
   }
   loopThrough(body);
+  observer.observe(body, config);
 };
 
 main().catch((error) => {
