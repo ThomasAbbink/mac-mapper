@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Mac Mapper",
-  "description": "Arno is een luie man en wil geen mac adressen opzoeken",
+  "description": "Mac Mapper will display the vendor of a MAC address inline in your page.",
   "version": "0.0.1",
   "action": {
     "default_icon": {
@@ -21,7 +21,6 @@
   "background": {
     "service_worker": "service-worker.js"
   },
-
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
